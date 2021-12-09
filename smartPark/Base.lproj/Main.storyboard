@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wJF-hl-9Dd">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location View Controller-->
+        <scene sceneID="iQt-bE-gWd">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" id="7ay-Yh-pia" customClass="LocationViewController" customModule="smartPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9TD-gq-gNM">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MWt-Cg-oxc">
+                                <rect key="frame" x="0.0" y="88" width="428" height="759"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OSZ-mi-VUQ">
+                                <rect key="frame" x="126.66666666666669" y="855" width="175" height="43"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I3-4I-azC">
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="43"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="map-button" title=""/>
+                                        <connections>
+                                            <action selector="directionsButtonPressed:" destination="7ay-Yh-pia" eventType="touchUpInside" id="Y0A-XC-dS4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOU-un-Gyh">
+                                        <rect key="frame" x="60.999999999999986" y="0.0" width="53" height="43"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="slash-pin"/>
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="7ay-Yh-pia" eventType="touchUpInside" id="etf-Mz-QMP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-7N-QUD">
+                                        <rect key="frame" x="122" y="0.0" width="53" height="43"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="speedometer-button" title=""/>
+                                        <connections>
+                                            <segue destination="Mf7-US-Myx" kind="show" identifier="ShowSpeed" id="vsJ-MW-xnO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gDI-dL-gBv"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MWt-Cg-oxc" firstAttribute="trailing" secondItem="gDI-dL-gBv" secondAttribute="trailing" id="59Q-ks-5IB"/>
+                            <constraint firstItem="OSZ-mi-VUQ" firstAttribute="centerX" secondItem="9TD-gq-gNM" secondAttribute="centerX" id="5o1-s0-HZN"/>
+                            <constraint firstItem="MWt-Cg-oxc" firstAttribute="top" secondItem="gDI-dL-gBv" secondAttribute="top" id="8h8-pa-1AT"/>
+                            <constraint firstAttribute="bottom" secondItem="OSZ-mi-VUQ" secondAttribute="bottom" constant="28" id="HM4-o4-NMR"/>
+                            <constraint firstItem="MWt-Cg-oxc" firstAttribute="leading" secondItem="gDI-dL-gBv" secondAttribute="leading" id="dpX-65-phi"/>
+                            <constraint firstItem="OSZ-mi-VUQ" firstAttribute="top" secondItem="MWt-Cg-oxc" secondAttribute="bottom" constant="8" id="t7N-bc-HMB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="zSL-6p-MYg"/>
+                    <connections>
+                        <outlet property="mapView" destination="MWt-Cg-oxc" id="tMf-tK-6Zt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mh1-TH-GlK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.7757009345794" y="-39.524838012958966"/>
+        </scene>
+        <!--Speed View Controller-->
+        <scene sceneID="C8p-Pk-aml">
+            <objects>
+                <viewController storyboardIdentifier="SpeedViewController" modalPresentationStyle="fullScreen" id="Mf7-US-Myx" customClass="SpeedViewController" customModule="smartPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c1r-iN-FJR">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAy-tv-2OS">
+                                <rect key="frame" x="190" y="861" width="48" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="homekit" catalog="system" title="">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Mf7-US-Myx" eventType="touchUpInside" id="3jv-DG-mDS"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G22-Dy-t5F">
+                                <rect key="frame" x="0.0" y="219" width="428" height="634"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999mph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-6W-SRa">
+                                <rect key="frame" x="21" y="88" width="386" height="123"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="103"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="emS-HY-QNZ"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="emS-HY-QNZ" firstAttribute="trailing" secondItem="qJL-6W-SRa" secondAttribute="trailing" constant="21" id="B0c-qv-Dmw"/>
+                            <constraint firstItem="qJL-6W-SRa" firstAttribute="centerX" secondItem="c1r-iN-FJR" secondAttribute="centerX" id="IuA-WT-iYz"/>
+                            <constraint firstItem="emS-HY-QNZ" firstAttribute="trailing" secondItem="G22-Dy-t5F" secondAttribute="trailing" id="O8R-kg-CVE"/>
+                            <constraint firstItem="G22-Dy-t5F" firstAttribute="top" secondItem="qJL-6W-SRa" secondAttribute="bottom" constant="8" id="PD4-K4-Yx2"/>
+                            <constraint firstItem="hAy-tv-2OS" firstAttribute="top" secondItem="G22-Dy-t5F" secondAttribute="bottom" constant="8" id="SPP-OT-o39"/>
+                            <constraint firstItem="hAy-tv-2OS" firstAttribute="centerX" secondItem="c1r-iN-FJR" secondAttribute="centerX" id="h24-oU-S8g"/>
+                            <constraint firstItem="G22-Dy-t5F" firstAttribute="leading" secondItem="emS-HY-QNZ" secondAttribute="leading" id="pDl-Xr-fyp"/>
+                            <constraint firstItem="hAy-tv-2OS" firstAttribute="bottom" secondItem="emS-HY-QNZ" secondAttribute="bottom" id="pHL-Mn-Jbp"/>
+                            <constraint firstItem="qJL-6W-SRa" firstAttribute="top" secondItem="emS-HY-QNZ" secondAttribute="top" id="pUU-JG-oHA"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Qp4-h5-bqR" appends="YES" id="1gF-6I-sFh"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sxq-Ak-aab"/>
+                    <connections>
+                        <outlet property="driveModeMapView" destination="G22-Dy-t5F" id="zwq-Xf-I1k"/>
+                        <outlet property="homeButton" destination="hAy-tv-2OS" id="4ld-TJ-Lqw"/>
+                        <outlet property="speedLabel" destination="qJL-6W-SRa" id="wEe-Q9-DQA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hg5-lH-eQu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Qp4-h5-bqR"/>
+            </objects>
+            <point key="canvasLocation" x="1994.8598130841119" y="-40.172786177105834"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="O1Y-w3-cza">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wJF-hl-9Dd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lJz-eL-G0d">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7ay-Yh-pia" kind="relationship" relationship="rootViewController" id="HkF-Gt-Btd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nMj-lh-CQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.77570093457942" y="-39.524838012958966"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="map-button" width="29" height="29"/>
+        <image name="slash-pin" width="29" height="29"/>
+        <image name="speedometer-button" width="29" height="29"/>
+    </resources>
+</document>
