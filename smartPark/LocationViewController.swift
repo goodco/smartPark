@@ -85,13 +85,10 @@ class LocationViewController: UIViewController, MKMapViewDelegate  {
             // start countdown once vehicle has slowed to below 1mph
             if (speed < 1 && startedDriving == true && doNotSkip == true) {
                 print("STOPPED DRIVING 🛑")
-                doNotSkip = false // TESTING
                 isDriving = false
+                doNotSkip = false // TESTING
                 parkedLocation = myLocation
                 startTimer()
-//                if isDriving == true {
-//                    locationManager.startUpdatingLocation()
-//                }
             }
             
             if speed < 15 && isDriving == false && startedDriving == true {
@@ -204,7 +201,7 @@ extension LocationViewController: CLLocationManagerDelegate {
         print("Checking authentication status")
         handleAuthenticationStatus(status: status)
     }
-    
+
     func handleAuthenticationStatus(status: CLAuthorizationStatus){
         switch status {
         case .notDetermined:
@@ -215,13 +212,12 @@ extension LocationViewController: CLLocationManagerDelegate {
         case .denied:
             showAlertToPrivacySettings(title: "User has not authorized location services", message: "Select 'Settings' below and enable location services for this app")
         case .authorizedAlways, .authorizedWhenInUse:
-            locationManager.requestLocation()
             locationManager.allowsBackgroundLocationUpdates = true
         @unknown default:
             print("DEVELOPER ALERT: Unknown case of status in handleAuthentication\(status)")
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("ERROR: \(error.localizedDescription). Failed to get device location")
     }
